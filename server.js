@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 const path = require('path');
+const listenPort = process.env.PORT || 4000;
+
 
 const homefilepath = path.resolve(__dirname,"home.html");
 app.set(express.static("./files"));
@@ -63,6 +65,6 @@ app.get("/create", (req,res)=>{
 app.get("*",(req,res)=>{
     res.send("404 file not found")
 })
-app.listen(4000,()=>{
+app.listen(listenPort,()=>{
     console.log("server live on succcesfully");
 })
